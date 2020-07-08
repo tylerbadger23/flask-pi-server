@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera</title>
+</head>
+<body>
+    <form action="/camera" method="POST" style="width: 50vw; margin: auto;margin-top: 60px;">
+      
+        <h2>View Camera</h2>
+        <p>View recent activity and data provided by camera. Camera shots are taken every 1 minute or on motion</p>
+        <br>
+        <img src="/static/stills/{{file_name}}" class="img-thumbnail">
+        
+        {% if error_info %}
+          <div class="alert alert-info" role="alert">
+            {{ error_info }}
+          </div>
+        {% endif %}
+      </form>
+      
+</body>
+</html>
